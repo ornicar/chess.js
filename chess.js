@@ -255,24 +255,11 @@ var Chess = function(fen, game_type) {
 
     turn = tokens[1];
 
-    if (tokens[2].indexOf('K') > -1) {
-      castling.w |= BITS.KSIDE_CASTLE;
-    }
-    if (tokens[2].indexOf('Q') > -1) {
-      castling.w |= BITS.QSIDE_CASTLE;
-    }
-    if (tokens[2].indexOf('k') > -1) {
-      castling.b |= BITS.KSIDE_CASTLE;
-    }
-    if (tokens[2].indexOf('q') > -1) {
-      castling.b |= BITS.QSIDE_CASTLE;
-    }
-
     ep_square = (tokens[3] === '-') ? EMPTY : SQUARES[tokens[3]];
     half_moves = parseInt(tokens[4], 10);
     move_number = parseInt(tokens[5], 10);
 
-    update_setup(generate_fen());
+    update_setup(fen);
 
     return true;
   }
